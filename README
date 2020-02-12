@@ -1,0 +1,39 @@
+1.)
+
+Obecny katalog zawiera dwa programy
+- moduł jądra w podkatalogu module
+- program z przestrzeni użytkownika - controller.c
+
+Aby skompilować obydwa programy należy wykonać w obecnym katalogu komende
+
+$ make
+
+Aby wyczyścić katalog z plików obiektowych i wykonywalnych należy użyć
+
+$ make clean
+
+2.)
+
+sposób użycia programu controller:
+
+./controller --pid <nr_pid> --module <nazwa_modułu>
+
+przyjmuje do dwóch flag z parametrami, odpowiadają za ukrycie procesu i/lub modułu
+
+3.)
+
+Aby sprawdzić minimalny scenariusz testowy należy wykonać następujące czynności:
+
+- zbudować programy
+
+$ make
+
+- załadować moduł jądra
+
+$ cd module
+$ sudo insmod ./hide.ko
+
+- wykonać test
+
+$ cd ..
+$ ./controller --pid 1920
